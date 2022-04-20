@@ -1,0 +1,2 @@
+class NamazsController < ApplicationController
+end
