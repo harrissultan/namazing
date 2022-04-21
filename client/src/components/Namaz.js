@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-function Namaz(){
+function Namaz({user}){
+    console.log(user.id)
 const [allData, setAllData] = useState({});
 const [fajr, setFajr] = useState(false);
 const [dhuhr, setDhuhr] = useState(false);
@@ -27,7 +28,8 @@ function handle(e){
         dhuhr: dhuhr,
         asr: asr,
         maghrib: maghrib,
-        isha: isha  
+        isha: isha,
+        user_id: user.id
       }),
     })
     // .then((r) => {

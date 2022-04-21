@@ -28,7 +28,7 @@ function App() {
         {user ? (
           <Switch>
             <Route path="/namaz">
-              <Namaz />
+              <Namaz user={user}/>
             </Route>
             <Route path="/">
               <Main user={user}/>

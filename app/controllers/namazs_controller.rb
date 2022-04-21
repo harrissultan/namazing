@@ -13,6 +13,6 @@ class NamazsController < ApplicationController
     private
 
     def namazs_params
-        params.permit(:fajr, :dhuhr, :asr, :maghrib, :isha)
+        params.permit(:fajr, :dhuhr, :asr, :maghrib, :isha, :user_id)
     end
 end
