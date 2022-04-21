@@ -16,7 +16,8 @@ function Hadith(){
 
 
 return(
-    <div>
+    <div >
+        <h2>Hadith</h2>
         <p>{hadithData?.hadith[1].body}</p>
         <br/>
         <p>{hadithData?.hadith[0].body}</p>

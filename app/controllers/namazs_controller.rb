@@ -4,8 +4,15 @@ class NamazsController < ApplicationController
         render json: namaz, status: :ok
     end
     def create
-        namaz = Namazs.create(params.permit(:fajr, :dhuhr, :asr, :maghrib, :isha))
-        params[:namaz_id] = namaz_id
+        namaz = Namazs.create!(namazs_params)
+        # params[:namaz] = namaz
         render json: namaz, status: :created
+    end
+ 
+
+    private
+
+    def namazs_params
+        params.permit(:fajr, :dhuhr, :asr, :maghrib, :isha)
     end
 end
