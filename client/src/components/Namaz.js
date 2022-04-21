@@ -34,7 +34,7 @@ return (
             <label><h1 id="namazlist">Fajr: {allData.Fajr}</h1></label>
             <input className="checkbox" type="checkbox" id="fajrCheck" onChange={console.log(true)} />
         </div>
-        {/* <div id="namaz">
+        <div id="namaz">
             <label><h1 id="namazlist">Dhuhr: {allData.Dhuhr}</h1></label>
             <input className="checkbox" type="checkbox" id="dhuhrCheck" onClick="{e.target.value}"/>     
         </div>
@@ -49,7 +49,7 @@ return (
         <div id="namaz">
             <label><h1 id="namazlist">Isha: {allData.Isha}</h1></label>
             <input className="checkbox" type="checkbox" id="ishaCheck" onClick="{e.target.value}"/>
-        </div> */}
+        </div>
         
     </div>
 );

@@ -8,7 +8,7 @@ function Hadith(){
     .then((r) => {
       if (r.ok) {
         r.json()
-        .then((data) => setHadithData(data.hadith));
+        .then((data) => setHadithData(data));
       }else{alert("error")}
     });
   }, []);
@@ -17,9 +17,9 @@ function Hadith(){
 
 return(
     <div>
-        {/* <p>{hadithData[0].body}</p> */}
-        {/* <p>{console.log(hadithData[0].body)}</p> */}
-        {/* <p>{console.log(hadithData[1].body)}</p> */}
+        <p>{hadithData?.hadith[1].body}</p>
+        <br/>
+        <p>{hadithData?.hadith[0].body}</p>
     </div>
 );
 

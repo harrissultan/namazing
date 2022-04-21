@@ -63,7 +63,7 @@ function Main({ user }) {
       </div>
       </div>
       <br/>
-      <div>
+      <div id="dis-box">
         <Hadith/>
       </div>
       </>
