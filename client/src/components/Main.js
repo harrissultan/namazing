@@ -1,18 +1,28 @@
 import { useState, useEffect } from "react";
+import Hadith from "./Hadith";
 
 function Main({ user }) {
 
-  const [allData, setAllData] = useState({});
+  const [prayerData, setPrayerData] = useState({});
 
-  let v1 = allData.data?.timings.Fajr
-  let v2 = allData.data?.timings.Dhuhr
-  let v3 = allData.data?.timings.Asr
-  let v4 = allData.data?.timings.Maghrib
-  let v5 = allData.data?.timings.Isha
+  useEffect(() => {
+    fetch("https://api.aladhan.com/v1/timingsByAddress?address=ny")
+      .then((r) => r.json())
+      .then((data) => setPrayerData(data));
+      // .then((data) => console.log(data));
+  }, []);
+
+
+
+  let v1 = prayerData.data?.timings.Fajr
+  let v2 = prayerData.data?.timings.Dhuhr
+  let v3 = prayerData.data?.timings.Asr
+  let v4 = prayerData.data?.timings.Maghrib
+  let v5 = prayerData.data?.timings.Isha
   let today = new Date();
   let time = today.getHours();
   let nextPrayer = 0
-  console.log(allData)
+  // console.log(hadithData)
   if ((parseInt(v1)>time)){
     nextPrayer = `Fajr at ${v1}`;
   }else if ((parseInt(v2)>time)){
@@ -25,12 +35,7 @@ function Main({ user }) {
     nextPrayer =  `Isha ${v5}`;
   }
 
-  useEffect(() => {
-    fetch("https://api.aladhan.com/v1/timingsByAddress?address=ny")
-      .then((r) => r.json())
-      .then((data) => setAllData(data));
-      // .then((data) => console.log(data));
-  }, []);
+
 
   if (user) {
     return(
@@ -41,7 +46,7 @@ function Main({ user }) {
         </div>
           <hr/>
         <div id="dis-box">
-          <h3>Today's Date: {allData.data?.date.gregorian.day}-{allData.data?.date.gregorian.month.en}-{allData.data?.date.gregorian.year} ---------------- Islamic Date: {allData.data?.date.hijri.day}-{allData.data?.date.hijri.month.en}-{allData.data?.date.hijri.year}</h3>
+          <h3>Today's Date: {prayerData.data?.date.gregorian.day}-{prayerData.data?.date.gregorian.month.en}-{prayerData.data?.date.gregorian.year} ---------------- Islamic Date: {prayerData.data?.date.hijri.day}-{prayerData.data?.date.hijri.month.en}-{prayerData.data?.date.hijri.year}</h3>
           <br/>
           <h1>Next Prayer: {nextPrayer}</h1>
         </div>
@@ -50,12 +55,16 @@ function Main({ user }) {
       <div id="namaz">
       <div id="sahoor-box">
         <h1>Sahoor Time</h1>
-        <h1>{allData.data?.timings.Fajr}</h1>
+        <h1>{prayerData.data?.timings.Fajr}</h1>
       </div>
       <div id="iftar-box">
         <h1>Iftar Time</h1>
-        <h1>{allData.data?.timings.Maghrib}</h1>
+        <h1>{prayerData.data?.timings.Maghrib}</h1>
       </div>
+      </div>
+      <br/>
+      <div>
+        <Hadith/>
       </div>
       </>
   )} else {

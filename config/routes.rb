@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/user', to: 'users#index'
   delete '/userdelete', to: 'users#destroy'
-  # get '/namaz', to: 'namazs#index'
-
+  get '/namaz', to: 'namazs#index'
+  post '/namaz', to: 'namazs#create'
+  get '/api', to: 'api#api'
 end

@@ -1,5 +1,6 @@
 body {
-  background: #fff url(https://wallpaperaccess.com/full/420906.jpg) center center/cover no-repeat content-box;
+  background: #fff url(https://wallpaperaccess.com/full/420906.jpg) center center/cover no-repeat padding-box;
+  display: flexbox;
 
   
 
@@ -41,6 +42,7 @@ header button {
 
 main {
   margin: 3rem;
+  display: flexbox;
 }
 
 form {
@@ -126,6 +128,7 @@ form input {
 }
 
 #main-display{
+  background-color: #1c6ea484;
   text-align: center;
   color: #ffffff;
   
@@ -137,9 +140,12 @@ form button[type="submit"] {
   form button:active {
   background: #144E75; }
 
+.checkbox{
+  background-color: rgba(109, 231, 196, 0.463);
+  margin: 35px;
+}
 #namazlist{
   background-color: rgba(109, 231, 196, 0.463);
-  
 }
 #namaz{
   column-count: 2;
